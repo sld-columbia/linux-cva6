@@ -33,8 +33,8 @@ HOSTLDLIBS_dtc	:= $(shell $(HOSTPKG_CONFIG) --libs yaml-0.1)
 endif
 
 # Generated files need one more search path to include headers in source tree
-HOSTCFLAGS_dtc-lexer.lex.o := -I $(srctree)/$(src)
-HOSTCFLAGS_dtc-parser.tab.o := -I $(srctree)/$(src)
+HOSTCFLAGS_dtc-lexer.lex.o := -I $(srctree)/$(src) -fcommon
+HOSTCFLAGS_dtc-parser.tab.o := -I $(srctree)/$(src) -fcommon
 
 # dependencies on generated files need to be listed explicitly
 $(obj)/dtc-lexer.lex.o: $(obj)/dtc-parser.tab.h
